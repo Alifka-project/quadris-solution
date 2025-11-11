@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quadris Solutions Web Rebuild
 
-## Getting Started
+Modern, SEO-ready reimplementation of [https://quadris.solutions/d/en/](https://quadris.solutions/d/en/) using Next.js App Router, TypeScript, Tailwind, shadcn/ui foundations, and Framer Motion micro-interactions. All copy originates from the live Quadris Solutions site (no synthetic data).
 
-First, run the development server:
+## Stack
+- Next.js 16 (App Router) + TypeScript
+- Tailwind v4 with custom CSS variables
+- shadcn/ui tooling + lucide-react icons
+- Framer Motion for subtle motion (respecting `prefers-reduced-motion`)
+- next/font (Inter + DM Sans + JetBrains Mono)
+- next-sitemap for sitemap/robots generation
+- zod-validated server actions for the contact form
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Brand Tokens
+Global tokens live in `app/globals.css` and map to the official Quadris logo palette (`#4146A7`).
+
+```css
+:root {
+  --brand-primary-600: #2f338f;
+  --brand-primary-500: #4146a7;
+  --brand-primary-400: #5b61c4;
+  --brand-primary-100: #e7e9f8;
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #0f1720;
+  --muted: #5a6575;
+  --border: #e6ebf2;
+  --halo: rgba(0, 0, 0, 0.06);
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Heading and body typography is controlled through `--font-heading` (DM Sans) and `--font-sans` (Inter). Components consume these tokens via Tailwind’s `@theme` layer.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
+- `npm run dev` – start local development (http://localhost:3000)
+- `npm run lint` – ESLint across the repo
+- `npm run build` – production build (also generates sitemap + robots via `postbuild`)
+- `npm run sitemap` – regenerate sitemap/robots without a full build (requires previous `next build`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The build produces `public/sitemap.xml`, `public/sitemap-0.xml`, and `public/robots.txt` for deployment.
 
-## Learn More
+## Architecture Notes
+- Locale-aware routing lives under `app/[locale]`. Only `en` is active today; additional locales can be enabled by:
+  1. Adding the locale code to `supportedLocales` in `app/[locale]/layout.tsx`
+  2. Duplicating the content modules under `content/` with translated copy
+  3. Replacing the links in `lib/navigation.ts` with locale-prefixed paths
+- `components/structured-data.tsx` injects JSON-LD for both the organization (layout) and individual services (per page).
+- The contact form (`components/forms/contact-form.tsx`) posts to the `submitContact` server action with zod validation. Replace the console log in `actions.ts` with a mailer or CRM integration in production.
+- `/og` is an edge route generating dynamic Open Graph images. Metadata helpers in `lib/metadata.ts` ensure every page references `/og?...` variants for OG/Twitter cards.
 
-To learn more about Next.js, take a look at the following resources:
+## Assets & Imagery
+- Official logo sourced from `https://quadris.solutions/d/img/logo-quadris.svg` (`public/brand/logo-quadris.svg`).
+- Portraits mirror the legacy site (`francesco-castellazzi.png`, `raphael-de-stefano.png`).
+- Hero photography uses a Matterhorn landscape from Unsplash (downloaded locally to avoid external requests).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Future Localisation
+To add German (`de`) or Spanish (`es`):
+1. Duplicate the `en` sub-tree under `app/[locale]/(site)` or introduce dictionary loaders.
+2. Update `locales` in `lib/navigation.ts` to mark the locale as `available: true`.
+3. Provide translated assets/content; avoid placeholder or machine-translated text per project requirements.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Accessibility & Performance
+- `prefers-reduced-motion` is honoured globally; focus states use high-contrast outlines.
+- All imagery uses `next/image` for responsive optimisation.
+- Lighthouse 95+ targets: avoid layout thrash, lazy-load below-the-fold sections, and run `npm run build` before profiling.
 
-## Deploy on Vercel
+## Deployment Checklist
+1. `npm run build`
+2. Verify `/og?title=Quadris%20Solutions` renders correctly
+3. Deploy `.next`, `public/robots.txt`, `public/sitemap*.xml`
+4. Configure environment secrets for the contact form integration (if sending email)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to open `package.json` for script reference or `content/` for authoritative page copy.

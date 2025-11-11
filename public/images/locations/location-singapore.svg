@@ -1,0 +1,35 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="singaporeGradient" x1="0" y1="0" x2="640" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c5f1ff" />
+      <stop offset="100%" stop-color="#f1fbff" />
+    </linearGradient>
+    <linearGradient id="skylineSingapore" x1="0" y1="150" x2="0" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1aa7a1" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0b5c66" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="36" fill="url(#singaporeGradient)" />
+  <g opacity="0.25">
+    <circle cx="520" cy="70" r="42" fill="white" />
+    <circle cx="160" cy="60" r="26" fill="white" />
+    <path d="M0 280C85 250 130 250 215 280C300 310 340 310 425 280C510 250 555 250 640 280V360H0V280Z" fill="white" />
+  </g>
+  <g transform="translate(60,110)">
+    <path d="M70 240H20L36 140L53 120L70 140V240Z" fill="url(#skylineSingapore)" />
+    <rect x="90" y="80" width="70" height="160" rx="16" fill="url(#skylineSingapore)" />
+    <path d="M190 240H150V70L170 40L190 70V240Z" fill="url(#skylineSingapore)" />
+    <rect x="220" y="110" width="70" height="130" rx="18" fill="url(#skylineSingapore)" />
+    <path d="M310 240H270V90L290 60L310 90V240Z" fill="url(#skylineSingapore)" />
+    <path d="M360 140C360 118 380 100 400 100C420 100 440 118 440 140V240H360V140Z" fill="url(#skylineSingapore)" />
+    <rect x="460" y="95" width="60" height="145" rx="16" fill="url(#skylineSingapore)" />
+    <path d="M540 240H500V120L520 90L540 120V240Z" fill="url(#skylineSingapore)" />
+  </g>
+  <g fill="#c7f4ff" fill-opacity="0.65" transform="translate(70,130)">
+    <rect x="58" y="110" width="6" height="110" rx="3" />
+    <rect x="135" y="95" width="8" height="125" rx="4" />
+    <rect x="245" y="120" width="6" height="100" rx="3" />
+    <rect x="365" y="100" width="8" height="120" rx="4" />
+    <rect x="480" y="115" width="6" height="105" rx="3" />
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://quadris.solutions
+
+# Sitemaps
+Sitemap: https://quadris.solutions/sitemap.xml

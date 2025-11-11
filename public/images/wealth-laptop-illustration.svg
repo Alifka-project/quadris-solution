@@ -1,0 +1,46 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="70" y1="40" x2="570" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2E8FF" />
+      <stop offset="1" stop-color="#F3FBFF" />
+    </linearGradient>
+    <linearGradient id="screenGradient" x1="180" y1="90" x2="470" y2="290" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1F3CFF" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#7CE3FF" stop-opacity="0.3" />
+    </linearGradient>
+    <linearGradient id="keyGradient" x1="220" y1="330" x2="420" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A4B4FF" stop-opacity="0.4" />
+      <stop offset="1" stop-color="#7CE3FF" stop-opacity="0.4" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="460" y1="150" x2="520" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7CE3FF" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#1F3CFF" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+  <rect x="40" y="30" width="560" height="360" rx="120" fill="url(#bgGradient)" />
+  <ellipse cx="320" cy="350" rx="220" ry="40" fill="#E4F2FF" />
+  <rect x="140" y="110" width="360" height="210" rx="20" fill="#10162F" opacity="0.85" />
+  <rect x="152" y="122" width="336" height="186" rx="14" fill="url(#screenGradient)" />
+  <rect x="205" y="320" width="230" height="24" rx="8" fill="url(#keyGradient)" />
+  <rect x="186" y="305" width="268" height="16" rx="6" fill="#D9E4FF" />
+  <rect x="200" y="195" width="32" height="76" rx="8" fill="#7CE3FF" opacity="0.9" />
+  <rect x="248" y="165" width="32" height="106" rx="8" fill="#A4B4FF" opacity="0.9" />
+  <rect x="296" y="210" width="32" height="61" rx="8" fill="#1F3CFF" opacity="0.9" />
+  <rect x="344" y="180" width="32" height="91" rx="8" fill="#63A8FF" opacity="0.9" />
+  <rect x="392" y="150" width="32" height="121" rx="8" fill="#2F82FF" opacity="0.9" />
+  <path d="M204 235C232 210 266 232 298 210C330 188 352 190 384 210C414 228 435 214 468 192" stroke="#7CE3FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  <circle cx="468" cy="192" r="10" fill="#7CE3FF" />
+  <circle cx="206" cy="235" r="10" fill="#7CE3FF" />
+  <circle cx="350" cy="104" r="22" fill="url(#accentGradient)" opacity="0.9" />
+  <circle cx="480" cy="110" r="12" fill="#A4B4FF" opacity="0.6" />
+  <circle cx="470" cy="310" r="26" fill="url(#accentGradient)" opacity="0.35" />
+  <path d="M154 144H236" stroke="#D9E4FF" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  <path d="M154 164H214" stroke="#D9E4FF" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  <circle cx="254" cy="330" r="3.5" fill="#1F3CFF" />
+  <circle cx="288" cy="330" r="3.5" fill="#1F3CFF" />
+  <circle cx="322" cy="330" r="3.5" fill="#1F3CFF" />
+  <circle cx="356" cy="330" r="3.5" fill="#1F3CFF" />
+  <circle cx="390" cy="330" r="3.5" fill="#1F3CFF" />
+</svg>
+
+
