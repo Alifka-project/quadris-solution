@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { ContactForm } from "@/components/forms/contact-form";
-import { Hero } from "@/components/hero";
 import { SectionHeading } from "@/components/section-heading";
 import { contactContent } from "@/content/contact";
 import { createMetadata } from "@/lib/metadata";
@@ -21,11 +20,22 @@ export default function ContactPage() {
 
   return (
     <>
-      <Hero
-        variant="compact"
-        title={contactContent.hero.title}
-        subtitle={contactContent.hero.subtitle}
-      />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--surface)] via-[var(--bg)] to-[var(--surface)] py-24 md:py-32">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(65,70,167,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(65,70,167,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_10%,#000_70%,transparent_110%)]" />
+        </div>
+        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 text-center md:px-12">
+          <span className="mx-auto inline-flex items-center gap-2 rounded-full border border-[var(--brand-primary)]/20 bg-[var(--brand-primary-100)]/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-primary)] backdrop-blur-md">
+            Contact
+          </span>
+          <h1 className="bg-gradient-to-br from-[var(--text)] via-[var(--text)] to-[var(--brand-primary)] bg-clip-text text-transparent" style={{ fontSize: "clamp(2.4rem, 5vw, var(--text-3xl))", lineHeight: 1.1 }}>
+            {contactContent.hero.title}
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg text-foreground/70">
+            {contactContent.hero.subtitle}
+          </p>
+        </div>
+      </section>
 
       <section className="mx-auto w-full max-w-5xl px-4 py-16 md:px-8">
         <SectionHeading
